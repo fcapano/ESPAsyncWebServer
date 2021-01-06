@@ -110,7 +110,7 @@ class AsyncWebHeader {
   public:
     AsyncWebHeader(const String& name, const String& value): _name(name), _value(value){}
     AsyncWebHeader(const String& data): _name(), _value(){
-      if(!data) return;
+      if(data.isEmpty()) return;
       int index = data.indexOf(':');
       if (index < 0) return;
       _name = data.substring(0, index);
